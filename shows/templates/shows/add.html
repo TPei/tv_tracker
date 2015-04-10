@@ -1,0 +1,14 @@
+{% extends "shows/base.html" %}
+{% block content %}
+<a href="{%  url 'search' %}">zurück zur Suche</a>
+<h1> Show hinzuf&uuml;gen</h1>
+<div class="box">
+    <form action="{% url 'add' %}" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+         <div class="first-col">{{ field.label_tag }}</div><div class="second-col">{{ field }}</div><br>
+        {% endfor %}
+        <input type="submit" value="Film hinzuf&uuml;gen">
+    </form>
+</div>
+{% endblock %}

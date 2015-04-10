@@ -1,0 +1,97 @@
+body
+{
+    box-sizing: border-box;
+    font-size: 1.5em;
+    font-family: 'Lato', sans-serif;
+}
+
+#content
+{
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+a
+{
+    color: black;
+    font-size: 0.8em;
+}
+
+a:hover
+{
+    text-decoration: overline;
+}
+
+div.box
+{
+    padding: 1.5em;
+    border:  1px dotted slategray;
+    border-radius: 5px;
+    margin-bottom: 0.5em;
+}
+
+div.box-content
+{
+    padding: 0.5em 1.5em;
+    border:  1px dotted slategray;
+    border-radius: 5px;
+    margin-bottom: 0.5em;
+}
+
+div.movie
+{
+    text-align: left;
+    padding-left: 150px;
+    border-bottom: 1px solid slategrey;
+}
+
+div.movie a
+{
+    color: black;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+div.movie a:hover
+{
+    text-decoration: underline;
+}
+
+
+form#search input
+{
+    height: 30px;
+    padding: 10px;
+}
+
+form#search input[type="text"]
+{
+    width: 300px;
+    font-size: 0.9em;
+}
+
+form#search input[type="submit"]
+{
+    font-weight: 800;
+    font-size: 0.8em;
+    height: 52px;
+}
+
+div.first-col
+{
+    text-align: left;
+}
+div.second-col
+{
+    padding-top: 0.3em;
+    text-align: left;
+}
+
+div.second-col input
+{
+    height: 20px;
+    padding: 10px;
+    width: 300px;
+    font-size: 0.8em;
+}

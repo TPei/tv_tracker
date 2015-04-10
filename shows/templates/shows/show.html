@@ -1,0 +1,50 @@
+{% extends "shows/base.html" %}
+{% block content %}
+<a href="{%  url 'search' %}">zurück zur Suche</a>
+<h1>{{ show.name }}</h1>
+<h2>Rating: {{ rating }} / 6.0</h2>
+<p>{{ show.description }}</p>
+<p>Tags:
+{% for tag in tags %}
+    <a href="{% url 'search' %}?q={{ tag }}">{{ tag }}</a>&nbsp;
+{% endfor %}
+</p>
+
+{% if show.youtube_link %}
+    <object width="640" height="390">
+  <param name="movie"
+         value="http://www.youtube.com/v/{{ show.youtube_link }}?version=3"></param>
+  <param name="allowScriptAccess" value="always"></param>
+  <embed src="http://www.youtube.com/v/{{ show.youtube_link }}?version=3"
+         type="application/x-shockwave-flash"
+         allowscriptaccess="always"
+         width="640" height="390"></embed>
+</object>
+{% endif %}
+
+<hr>
+<h2> {{ show.name }} bewerten</h2>
+<form action="{% url 'show' show.id %}" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+     {{ field.label_tag }} {{ field }}<br>
+    {% endfor %}
+    <input type="submit" value="Bewertung abgeben">
+</form>
+
+<hr>
+<h2>Bewertungen für {{ show.name }} ({{ show.rating_count }})</h2>
+
+{% if not ratings %}
+    <p>Es wurden noch keine Bewertungen abgegeben</p>
+{% endif %}
+
+{% for rating in ratings %}
+    <p>
+        <span style="font-size:20pt;font-weight: bold;"> {{ rating.score }} </span>
+        {{ rating.message|default:"Zu dieser Bewertung wurde kein Text verfasst." }}
+    </p>
+    <hr>
+{% endfor %}
+
+{% endblock %}

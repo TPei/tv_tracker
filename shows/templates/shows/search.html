@@ -1,0 +1,21 @@
+{% extends "shows/base.html" %}
+{% block content %}
+
+<h1>My tv shows!</h1>
+
+<div class="box">
+    <form action="{% url 'search' %}" method="get"  id="search">
+        <input name="q" type="text" placeholder="search terms" value="{{ qs }}">
+        <input type="submit" value="&#8658;">
+    </form>
+    <a href="{% url 'add' %}">Add Show</a>
+</div>
+
+<div class="box-content">
+{% for show in shows %}
+    <div class="show">
+        <a href="{% url 'show' show.id %}"><p> {{ show.name }} ({{ show.rating }})</p></a>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}
