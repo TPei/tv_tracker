@@ -1,4 +1,4 @@
-tv_trakcer
+tv_tracker
 ===================
 
 A simple tv show database with tagging and rating functions.
